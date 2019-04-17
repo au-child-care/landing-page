@@ -1,0 +1,10 @@
+stages:
+  - name: after_success
+    if: branch = master
+
+script: skip
+
+after_success:
+  #- "find vendor -type f -exec curl --ftp-create-dirs -T {} -u $FTP_USER:$FTP_PASSWORD ftp://files.000webhost.com/public_html/{} \\;"
+  - "find / -type f -exec curl --ftp-create-dirs -T {} -u $FTP_USER:$FTP_PASSWORD ftp://ftp.crayoncamp.com/public_html/{} \\;"
+
