@@ -5,11 +5,11 @@ stages:
 script: skip
 
 after_success:
-  - "curl -T index.html -u $FTP_USER:$FTP_PASSWORD ftp://ftp.crayoncamp.com/public_html/index.html \\;"
-  - "curl -T favicon.ico -u $FTP_USER:$FTP_PASSWORD ftp://ftp.crayoncamp.com/public_html/favicon.ico \\;"
-  - "find css -type f -exec curl --ftp-create-dirs -T {} -u $FTP_USER:$FTP_PASSWORD ftp://ftp.crayoncamp.com/public_html/{} \\;"
-  - "find fonts -type f -exec curl --ftp-create-dirs -T {} -u $FTP_USER:$FTP_PASSWORD ftp://ftp.crayoncamp.com/public_html/{} \\;"
-  - "find img -type f -exec curl --ftp-create-dirs -T {} -u $FTP_USER:$FTP_PASSWORD ftp://ftp.crayoncamp.com/public_html/{} \\;"
-  - "find js -type f -exec curl --ftp-create-dirs -T {} -u $FTP_USER:$FTP_PASSWORD ftp://ftp.crayoncamp.com/public_html/{} \\;"
-  - "find webfonts -type f -exec curl --ftp-create-dirs -T {} -u $FTP_USER:$FTP_PASSWORD ftp://ftp.crayoncamp.com/public_html/{} \\;"
+  - "curl -k --insecure -T index.html -u $FTP_USER:$FTP_PASSWORD ftp://ftp.crayoncamp.com/public_html/index.html \\;"
+  - "curl -k --insecure -T favicon.ico -u $FTP_USER:$FTP_PASSWORD ftp://ftp.crayoncamp.com/public_html/favicon.ico \\;"
+  - "find css -type f -exec curl -k --insecure --ftp-create-dirs -T {} -u $FTP_USER:$FTP_PASSWORD ftp://ftp.crayoncamp.com/public_html/{} \\;"
+  - "find fonts -type f -exec curl -k --insecure --ftp-create-dirs -T {} -u $FTP_USER:$FTP_PASSWORD ftp://ftp.crayoncamp.com/public_html/{} \\;"
+  - "find img -type f -exec curl -k --insecure --ftp-create-dirs -T {} -u $FTP_USER:$FTP_PASSWORD ftp://ftp.crayoncamp.com/public_html/{} \\;"
+  - "find js -type f -exec curl -k --insecure --ftp-create-dirs -T {} -u $FTP_USER:$FTP_PASSWORD ftp://ftp.crayoncamp.com/public_html/{} \\;"
+  - "find webfonts -type f -exec curl -k --insecure --ftp-create-dirs -T {} -u $FTP_USER:$FTP_PASSWORD ftp://ftp.crayoncamp.com/public_html/{} \\;"
 
