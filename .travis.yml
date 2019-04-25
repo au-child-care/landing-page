@@ -4,12 +4,6 @@ stages:
 
 language: php
 
-php:
-  - 7.0
-
-install:
-  - composer install
-
 script: skip
 
 after_success:
